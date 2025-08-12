@@ -1,0 +1,39 @@
+.inner_container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.headline {
+    margin-bottom: 20px; 
+    text-align: center; 
+}
+
+.container {
+    width: 80%;
+    margin-top: 20px; 
+}
+
+.wrapper {
+    display: flex;
+}
+
+
+
+.main_content {
+    flex: 1; 
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px; 
+
+}
+
+.table {
+    margin-top: 20px; 
+}

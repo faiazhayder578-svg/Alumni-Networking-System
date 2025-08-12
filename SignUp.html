@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--Checked 18/11/2024-->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="SignUp.css">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Sign Up</h2>
+		<form id="registration" method="post" action="SignUp.php">
+			<div class="row">
+				<div class="form-group">
+					<input type="text" name="first_name" id="details" placeholder=" " required maxlength="20">
+					<label for="fname">First Name<span style="color: red;">*</span></label>
+				</div>
+				<div class="form-group">
+					<input type="text" name="last_name" id="details" placeholder=" " maxlength="20">
+					<label for="lname">Last Name</label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<input type="text" name="user_id" id="details" placeholder=" " required maxlength="10">
+					<label for="user_id">User ID<span style="color: red;">*</span></label>
+				</div>
+				<div class="form-group">
+					<input type="email" name="email" id="details" placeholder=" " required maxlength="50">
+					<label for="email">Email Address<span style="color: red;">*</span></label>
+				</div> 
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<input type="password" name="password" id="details" placeholder=" " required maxlength="16">
+					<label for="password">Password<span style="color: red;">*</span></label>
+				</div>
+				<div class="form-group">
+					<input type="password" name="re_password" id="details" placeholder=" " required maxlength="16">
+					<label for="re_password">Re-enter Password<span style="color: red;">*</span></label>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="form-group">
+					<input type="date" name="dob" id="details" placeholder=" " required>
+					<label for="dob">Date of Birth<span style="color: red;">*</span></label>
+				</div>
+				<div class="form-group">
+					<input type="phone" name="phone_number" id="details" placeholder=" " maxlength="14">
+					<label for="phone_number">Phone Number</label>
+				</div>
+			</div>
+
+			<label>Gender:</label>
+			<br>&nbsp; &nbsp; &nbsp;
+			<input type="radio" name="gender" value="M" id="male"> Male
+			&nbsp;&nbsp; 
+			<input type="radio" name="gender" value="F" id="female"> Female
+			<br><br>
+
+			<div class="g-recaptcha" data-sitekey="6Le5mVkqAAAAAFQAaZ3wCkPqy5AQSku_nt2NjDPl"></div>
+
+			<p><span style="font-size: 12px;">By clicking Sign Up you agree to our <a href="">terms and conditions.</a>.</span></p>
+
+			<input type="submit" value="Sign Up" name="submit" id="submit">
+			<br><br>
+			<a href="signin.php" style="margin-left: 85px;">Already have an account?</a>
+
+		</form>
+	</div>
+</body>
+</html>
