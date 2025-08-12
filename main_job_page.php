@@ -233,7 +233,7 @@ mysqli_close($conn);
 <body>
     <div class="wrapper">
         <div class="side_container">
-            <h2>Library Management System</h2>
+            <h2>Alumni Relationship & Networking System</h2>
             <div class="image">
                 <img src="images/Blank_Image.png" alt="User Image">
             </div>
@@ -241,10 +241,8 @@ mysqli_close($conn);
                 <li><a href="UserDashboard.php"><i class="fas fa-home"></i>Dashboard</a></li>
                 <li><a href="EditProfile.php"><i class="fas fa-user"></i>Account</a></li>
                 <li><a href="GeneralChat.php"><i class="fas fa-message"></i>General Chat</a></li>
-                <li><a href="Books.php"><i class="fas fa-book"></i>Books</a></li>
-                <li><a href="Upload.php"><i class="fas fa-upload"></i>Upload</a></li>
-                <li><a href="main_job_page.php" class="active"><i class="fas fa-briefcase"></i>Job Posts</a></li>
-                <li><a href="Settings.php"><i class="fas fa-cog"></i>Settings</a></li>
+                <li><a href="JoinEvents.php"><i class="fas fa-upload"></i>Events</a></li>
+                <li><a href="main_job_page.php"><i class="fas fa-jobs"></i>Jobs</a></li>
                 <li><a href="ContactUs.php"><i class="fas fa-address-book"></i>Contact</a></li>
             </ul>
             <div class="social_media">

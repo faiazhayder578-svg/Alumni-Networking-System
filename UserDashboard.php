@@ -50,7 +50,6 @@ mysqli_close($conn);
                 <li><a href="UserDashboard.php"><i class="fas fa-home"></i>Dashboard</a></li>
                 <li><a href="EditProfile.php"><i class="fas fa-user"></i>Account</a></li>
                 <li><a href="GeneralChat.php"><i class="fas fa-message"></i>General Chat</a></li>
-                <!-- <li><a href="Books.php"><i class="fas fa-book"></i>Books</a></li> -->
                 <li><a href="JoinEvents.php"><i class="fas fa-upload"></i>Events</a></li>
                 <li><a href="main_job_page.php"><i class="fas fa-jobs"></i>Jobs</a></li>
                 <li><a href="ContactUs.php"><i class="fas fa-address-book"></i>Contact</a></li>
