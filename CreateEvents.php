@@ -21,7 +21,7 @@ if (isset($con)) {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "lms"; // Change this to your database name
+    $database = "ans"; // Change this to your database name
     
     $connection = new mysqli($servername, $username, $password, $database);
     

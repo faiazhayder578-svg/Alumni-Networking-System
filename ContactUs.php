@@ -1,11 +1,21 @@
 <?php
 //checked 18/11/2024 //
+
 session_start();
 if(!isset($_SESSION['user_id']))
 {
     header("location: signin.php");
+    exit();
 }
 
+require_once('Connection.php');
+$user_id = $_SESSION['user_id'];
+$success_message = '';
+$error_message = '';
+// Get user profile data for sidebar image
+$user_query = "SELECT profile_picture FROM users WHERE user_id='$user_id'";
+$user_result = mysqli_query($conn, $user_query);
+$user_data = mysqli_fetch_assoc($user_result);
 ?>
 
 <!DOCTYPE html>
@@ -22,9 +32,20 @@ if(!isset($_SESSION['user_id']))
 
     <div class="wrapper">
         <div class="side_container">
-            <h2>Library Management System</h2>
-            <div class="image">
-                <img src="images/Blank_Image.png" alt="User Image">
+            <h2>Alumni Relationship & Networking System</h2>
+             <div class="image">
+                <?php 
+                // Check if user has a profile picture
+                if (!empty($user_data['profile_picture']) && file_exists("uploads/profile_pictures/" . $user_data['profile_picture'])) {
+                    $profile_src = "uploads/profile_pictures/" . $user_data['profile_picture'];
+                } else {
+                    // Use default image if no profile picture or file doesn't exist
+                    $profile_src = "images/Blank_Image.png";
+                }
+                ?>
+                <img src="<?php echo $profile_src; ?>" alt="Profile Picture" 
+                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
+                     onerror="this.src='images/Blank_Image.png';">
             </div>
             <ul>
                 <li><a href="UserDashboard.php"><i class="fas fa-home"></i>Dashboard</a></li>

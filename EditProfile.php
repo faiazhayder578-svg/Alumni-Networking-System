@@ -49,8 +49,19 @@ mysqli_close($conn);
     <div class="wrapper">
         <aside class="side_container">
             <h2>Alumni Relationship & Networking System</h2>
-            <div class="image">
-                <img src="images/Blank_Image.png" alt="Profile Image">
+             <div class="image">
+                <?php 
+                // Check if user has a profile picture
+                if (!empty($current_data['profile_picture']) && file_exists("uploads/profile_pictures/" . $current_data['profile_picture'])) {
+                    $profile_src = "uploads/profile_pictures/" . $current_data['profile_picture'];
+                } else {
+                    // Use default image if no profile picture or file doesn't exist
+                    $profile_src = "images/Blank_Image.png";
+                }
+                ?>
+                <img src="<?php echo $profile_src; ?>" alt="Profile Picture" 
+                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
+                     onerror="this.src='images/Blank_Image.png';">
             </div>
             <?php if (isset($_SESSION['moderator_id']) || isset($_SESSION['admin_id'])) { ?>
                 <ul>

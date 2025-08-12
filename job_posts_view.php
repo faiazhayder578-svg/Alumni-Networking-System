@@ -251,7 +251,86 @@ mysqli_close($conn);
             color: #dee2e6;
             margin-bottom: 20px;
         }
+        /* Profile Picture Update Styles */
+        .profile-picture-section {
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
 
+        .profile-label {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .profile-upload-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .profile-preview {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border: 3px solid #ddd;
+            border-radius: 50%;
+            overflow: hidden;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .profile-preview:hover {
+            border-color: #007bff;
+        }
+
+        .profile-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .profile-preview:hover .upload-overlay {
+            opacity: 1;
+        }
+
+        #profile-picture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-info {
+            color: #666;
+            font-size: 11px;
+            margin-top: 5px;
+}
         @media (max-width: 768px) {
             .content-wrapper {
                 padding: 15px;
@@ -272,7 +351,18 @@ mysqli_close($conn);
         <div class="side_container">
             <h2>Alumni Relationship & Networking System</h2>
             <div class="image">
-                <img src="images/Blank_Image.png" alt="User Image">
+                <?php 
+                // Check if user has a profile picture
+                if (!empty($row['profile_picture']) && file_exists("uploads/profile_pictures/" . $row['profile_picture'])) {
+                    $profile_src = "uploads/profile_pictures/" . $row['profile_picture'];
+                } else {
+                    // Use default image if no profile picture or file doesn't exist
+                    $profile_src = "images/Blank_Image.png";
+                }
+                ?>
+                <img src="<?php echo $profile_src; ?>" alt="User Profile Picture" 
+                     style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"
+                     onerror="this.src='images/Blank_Image.png';">
             </div>
             <ul>
                 <li><a href="UserDashboard.php"><i class="fas fa-home"></i>Dashboard</a></li>

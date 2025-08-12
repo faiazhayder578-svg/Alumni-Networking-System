@@ -11,7 +11,7 @@
 <body>
 	<div class="container">
 		<h2>Sign Up</h2>
-		<form id="registration" method="post" action="SignUp.php">
+		<form id="registration" method="post" action="SignUp.php" enctype="multipart/form-data">
 			<div class="row">
 				<div class="form-group">
 					<input type="text" name="first_name" id="details" placeholder=" " required maxlength="20">
@@ -56,6 +56,23 @@
 				</div>
 			</div>
 
+			<!-- Profile Picture Upload Section -->
+			<div class="profile-picture-section">
+				<label class="profile-label">Profile Picture:</label>
+				<div class="profile-upload-container">
+					<div class="profile-preview">
+						<img id="profile-preview-img" src="images/default-avatar.png" alt="Profile Preview">
+						<div class="upload-overlay">
+							<span>Click to Upload</span>
+						</div>
+					</div>
+					<input type="file" name="profile_picture" id="profile-picture" accept="image/*" onchange="previewImage(event)">
+				</div>
+				<div class="file-info">
+					<small>Max size: 5MB. Supported formats: JPG, PNG, GIF</small>
+				</div>
+			</div>
+
 			<label>Gender:</label>
 			<br>&nbsp; &nbsp; &nbsp;
 			<input type="radio" name="gender" value="M" id="male"> Male
@@ -73,5 +90,34 @@
 
 		</form>
 	</div>
+
+	<script>
+		function previewImage(event) {
+			const file = event.target.files[0];
+			const preview = document.getElementById('profile-preview-img');
+			
+			if (file) {
+				// Validate file size (5MB max)
+				if (file.size > 5 * 1024 * 1024) {
+					alert('File size must be less than 5MB');
+					event.target.value = '';
+					return;
+				}
+				
+				// Validate file type
+				if (!file.type.match('image.*')) {
+					alert('Please select an image file');
+					event.target.value = '';
+					return;
+				}
+				
+				const reader = new FileReader();
+				reader.onload = function(e) {
+					preview.src = e.target.result;
+				};
+				reader.readAsDataURL(file);
+			}
+		}
+	</script>
 </body>
 </html>
